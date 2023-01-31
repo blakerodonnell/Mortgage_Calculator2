@@ -34,7 +34,7 @@ export default function Home() {
     const duration = Number(
       Array.from(e.target)
         .slice(4, -1)
-        .find((x) => x.checked).value
+        .find(x => x.checked).value
     );
 
     setInputs({ ...inputs, url, discount, desiredYield, rentRate, duration });
@@ -50,110 +50,120 @@ export default function Home() {
       </Head>
       <main className="p-4 font-outfit">
         <header className="text-2xl font-bold px-1 mb-12 font-outfit">
-          {/* <img
-            src="https://keyzy-homes.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe348b114-2bf2-4978-89a8-02d148b89315%2FKeyzy_-_Logo.png?id=495f75c5-1bff-4e7f-8d46-28f7cbf7fa6a&table=block&spaceId=ad2197fa-7ea7-473f-bd0a-35731ba863f4&width=830"
-            alt="Keyzy logo"
-            width="50"
-            height="50"
-          ></img> */}
           <h1>Keyzy</h1>
         </header>
         <div>
           <section>
-            <h2 className="text-lg font-bold mb-6">Inputs </h2>
+            <h2 className="text-lg font-bold mb-6">Inputs</h2>
             <form
               className="border-2 border-solid flex flex-col gap-6"
               onSubmit={handleSubmit}
             >
-              <div className="flex gap-12 justify-between items-center">
-                <label htmlFor="url">URL</label>
+              <div className="flex gap-2 justify-between items-center">
+                <label className="w-1/3" htmlFor="url">
+                  URL
+                </label>
                 <input
                   type="text"
                   name="url"
                   id="url"
-                  className="form-input w-60 h-12"
+                  className="form-input w-2/3 h-12"
                 />
               </div>
-              <div className="flex gap-12 justify-between items-center">
-                <label htmlFor="discountvasking">
+              <div className="flex gap-2 justify-between items-center">
+                <label className="w-1/3" htmlFor="discountvasking">
                   Discount vs asking price
                 </label>
-                <input
-                  type="range"
-                  name="discountvasking"
-                  id="discountvasking"
-                  className="w-60 h-12"
-                  min="0"
-                  max="30"
-                  value={inputs.discount}
-                  onChange={updateDiscount}
-                />
+                <div className="w-2/3 h-12 flex flex-col justify-center">
+                  <span className="block text-center">{inputs.discount}%</span>
+                  <input
+                    type="range"
+                    name="discountvasking"
+                    id="discountvasking"
+                    min="0"
+                    max="30"
+                    value={inputs.discount}
+                    onChange={updateDiscount}
+                  />
+                </div>
               </div>
-              <div className="flex gap-12 justify-between items-center">
-                <label htmlFor="desired-yield">Desired yield</label>
+              <div className="flex gap-2 justify-between items-center">
+                <label className="w-1/3" htmlFor="desired-yield">
+                  Desired yield
+                </label>
                 <input
                   type="text"
                   name="desired-yeild"
                   id="desired-yield"
-                  className="form-input w-60 h-12"
+                  className="form-input w-2/3 h-12"
                 />
               </div>
 
-              <div className="flex gap-12 items-center">
-                <label htmlFor="converted-rent">Converted rent rate</label>
-                <input
-                  type="range"
-                  name="converted-rent"
-                  id="converted-rent"
-                  className="inline-block w-60 h-12"
-                  min="0"
-                  max="30"
-                  value={inputs.rentRate}
-                  onChange={updateRentRate}
-                />
+              <div className="flex gap-2 items-center">
+                <label className="w-1/3" htmlFor="converted-rent">
+                  Converted rent rate
+                </label>
+                <div className="w-2/3 h-12 flex flex-col justify-center">
+                  <span className="block text-center">{inputs.rentRate}%</span>
+
+                  <input
+                    type="range"
+                    name="converted-rent"
+                    id="converted-rent"
+                    min="0"
+                    max="30"
+                    value={inputs.rentRate}
+                    onChange={updateRentRate}
+                  />
+                </div>
               </div>
               <div
-                className="flex gap-4 flex-wrap border-2 justify-between items-center"
+                className="flex gap-2 justify-between items-center mb-4"
                 onChange={updateDuration}
               >
-                <label className="w-16 ml-2 block" htmlFor="duration">
+                <label className="w-1/3 block" htmlFor="duration">
                   Duration
                 </label>
-                <div className="inline-block mb-6">
-                  <input
-                    type="radio"
-                    name="duration"
-                    id="duration-3"
-                    value="3"
-                  />
-                  <label className="w-16 ml-2" htmlFor="duration-3">
-                    3 years
-                  </label>
-                </div>
-                <div className="inline-block mb-6">
-                  <input
-                    type="radio"
-                    name="duration"
-                    id="duration-5"
-                    value="5"
-                  />
-                  <label className="w-16 ml-2" htmlFor="duration-5">
-                    5 years
-                  </label>
-                </div>
-                <div className="inline-block mb-6">
-                  <input
-                    type="radio"
-                    name="duration"
-                    id="duration-7"
-                    value="7"
-                  />
-                  <label className="w-16 ml-2" htmlFor="duration-7">
-                    7 years
-                  </label>
+                <div className="w-2/3 flex justify-between items-center">
+                  <div className="">
+                    <input
+                      type="radio"
+                      name="duration"
+                      id="duration-3"
+                      value="3"
+                      defaultChecked={true}
+                    />
+                    <label className="w-16 ml-2" htmlFor="duration-3">
+                      3 years
+                    </label>
+                  </div>
+                  <div className="">
+                    <input
+                      type="radio"
+                      name="duration"
+                      id="duration-5"
+                      value="5"
+                    />
+                    <label className="w-16 ml-2" htmlFor="duration-5">
+                      5 years
+                    </label>
+                  </div>
+                  <div className="">
+                    <input
+                      type="radio"
+                      name="duration"
+                      id="duration-7"
+                      value="7"
+                    />
+                    <label className="w-16 ml-2" htmlFor="duration-7">
+                      7 years
+                    </label>
+                  </div>
                 </div>
               </div>
-              <button>Submit</button>
+              <button className="h-12 bg-blue-500 text-white font-bold text-lg w-24 rounded hover:opacity-70">
+                Submit
+              </button>
             </form>
           </section>
         </div>
