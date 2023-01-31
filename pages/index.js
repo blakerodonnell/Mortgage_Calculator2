@@ -3,7 +3,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({
+    url: "",
+    discount: 0,
+    desiredYield: 0,
+    rentRate: 0,
+    duration: 3,
+  });
   console.log(inputs);
 
   function updateDiscount(e) {
@@ -14,6 +20,10 @@ export default function Home() {
     setInputs({ ...inputs, rentRate: Number(e.target.value) });
   }
 
+  function updateDuration(e) {
+    setInputs({ ...inputs, duration: Number(e.target.value) });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -21,7 +31,11 @@ export default function Home() {
     const discount = Number(e.target[1].value);
     const desiredYield = Number(e.target[2].value);
     const rentRate = Number(e.target[3].value);
-    const duration = Number(e.target[4].value);
+    const duration = Number(
+      Array.from(e.target)
+        .slice(4, -1)
+        .find(x => x.checked).value
+    );
 
     setInputs({ ...inputs, url, discount, desiredYield, rentRate, duration });
   }
@@ -104,7 +118,7 @@ export default function Home() {
                   onChange={updateRentRate}
                 />
               </div>
-              <div className="flex gap-20 items-center">
+              <div className="flex gap-20 items-center" onChange={updateDuration}>
                 <label className="w-16 ml-2 block" htmlFor="duration">
                   Duration
                 </label>
