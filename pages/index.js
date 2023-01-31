@@ -26,9 +26,9 @@ export default function Home() {
         <div>
           <section>
             <h2>Inputs</h2>
-            <form className="flex flex-col gap-6">
+            <form className="flex flex-col items-center gap-6">
               <div className="flex gap-20 items-center">
-                <label htmlFor="url">URL</label>
+                <label className="w-16 ml-2" htmlFor="url">URL</label>
                 <input
                   type="text"
                   name="url"
@@ -37,7 +37,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex gap-20 items-center">
-                <label htmlFor="discountvasking">
+                <label className="w-16 ml-2" htmlFor="discountvasking">
                   Discount vs asking price
                 </label>
                 <input
@@ -51,7 +51,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex gap-20 items-center">
-                <label htmlFor="desired-yield">Desired yield</label>
+                <label className="w-16 ml-2" htmlFor="desired-yield">Desired yield</label>
                 <input
                   type="text"
                   name="desired-yeild"
@@ -61,7 +61,7 @@ export default function Home() {
               </div>
 
               <div className="flex gap-20 items-center">
-                <label htmlFor="converted-rent">Converted rent rate</label>
+                <label className="w-16 ml-2" htmlFor="converted-rent">Converted rent rate</label>
                 <input
                   type="range"
                   name="converted-rent"
@@ -73,7 +73,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex gap-20 items-center">
-                <label className="block" htmlFor="duration">Duration</label>
+                <label className="w-16 ml-2 block" htmlFor="duration">Duration</label>
                 <div class="inline-block mb-6">
                   <input
                     type="radio"
@@ -81,33 +81,36 @@ export default function Home() {
                     id="duration-3"
                     value="3"
                   />
-                  <label for="duration-3" class="ml-2">
+                  <label className="w-16 ml-2" htmlFor="duration-3">
                     3 years
                   </label>
                 </div>
-                <div class="inline-block mb-6">
+                <div className="inline-block mb-6">
                   <input
                     type="radio"
                     name="duration"
                     id="duration-5"
                     value="5"
                   />
-                  <label for="duration-5" class="ml-2">
+                  <label className="w-16 ml-2" htmlFor="duration-5">
                     5 years
                   </label>
                 </div>
-                <div class="inline-block mb-6">
+                <div className="inline-block mb-6">
                   <input
                     type="radio"
                     name="duration"
                     id="duration-7"
                     value="7"
                   />
-                  <label for="duration-7" class="ml-2">
+                  <label className="w-16 ml-2" htmlFor="duration-7">
                     7 years
                   </label>
                 </div>
               </div>
+              <button>
+                Submit
+              </button>
             </form>
           </section>
         </div>
