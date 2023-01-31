@@ -1,10 +1,31 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useState } from "react";
 
 export default function Home() {
+  const [inputs, setInputs] = useState({});
+  console.log(inputs);
+
+  function updateDiscount(e) {
+    setInputs({ ...inputs, discount: Number(e.target.value) });
+  }
+
+  function updateRentRate(e) {
+    setInputs({ ...inputs, rentRate: Number(e.target.value) });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const url = e.target[0].value;
+    const discount = Number(e.target[1].value);
+    const desiredYield = Number(e.target[2].value);
+    const rentRate = Number(e.target[3].value);
+    const duration = Number(e.target[4].value);
+
+    setInputs({ ...inputs, url, discount, desiredYield, rentRate, duration });
+  }
+
   return (
     <>
       <Head>
@@ -26,9 +47,14 @@ export default function Home() {
         <div>
           <section>
             <h2>Inputs</h2>
-            <form className="flex flex-col items-center gap-6">
+            <form
+              className="flex flex-col items-center gap-6"
+              onSubmit={handleSubmit}
+            >
               <div className="flex gap-20 items-center">
-                <label className="w-16 ml-2" htmlFor="url">URL</label>
+                <label className="w-16 ml-2" htmlFor="url">
+                  URL
+                </label>
                 <input
                   type="text"
                   name="url"
@@ -47,11 +73,14 @@ export default function Home() {
                   className="w-40 h-12"
                   min="0"
                   max="30"
-                  value="15"
+                  value={inputs.discount}
+                  onChange={updateDiscount}
                 />
               </div>
               <div className="flex gap-20 items-center">
-                <label className="w-16 ml-2" htmlFor="desired-yield">Desired yield</label>
+                <label className="w-16 ml-2" htmlFor="desired-yield">
+                  Desired yield
+                </label>
                 <input
                   type="text"
                   name="desired-yeild"
@@ -61,7 +90,9 @@ export default function Home() {
               </div>
 
               <div className="flex gap-20 items-center">
-                <label className="w-16 ml-2" htmlFor="converted-rent">Converted rent rate</label>
+                <label className="w-16 ml-2" htmlFor="converted-rent">
+                  Converted rent rate
+                </label>
                 <input
                   type="range"
                   name="converted-rent"
@@ -69,12 +100,15 @@ export default function Home() {
                   className="w-40 h-12"
                   min="0"
                   max="30"
-                  value="15"
+                  value={inputs.rentRate}
+                  onChange={updateRentRate}
                 />
               </div>
               <div className="flex gap-20 items-center">
-                <label className="w-16 ml-2 block" htmlFor="duration">Duration</label>
-                <div class="inline-block mb-6">
+                <label className="w-16 ml-2 block" htmlFor="duration">
+                  Duration
+                </label>
+                <div className="inline-block mb-6">
                   <input
                     type="radio"
                     name="duration"
@@ -108,9 +142,7 @@ export default function Home() {
                   </label>
                 </div>
               </div>
-              <button>
-                Submit
-              </button>
+              <button>Submit</button>
             </form>
           </section>
         </div>
