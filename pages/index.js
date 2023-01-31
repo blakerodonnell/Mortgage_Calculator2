@@ -14,13 +14,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <header className="text-2xl font-bold px-1 font-Outfit">
-          <img
+        <header className="text-2xl font-bold px-1 font-outfit">
+          {/* <img
             src="https://keyzy-homes.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe348b114-2bf2-4978-89a8-02d148b89315%2FKeyzy_-_Logo.png?id=495f75c5-1bff-4e7f-8d46-28f7cbf7fa6a&table=block&spaceId=ad2197fa-7ea7-473f-bd0a-35731ba863f4&width=830"
             alt="Keyzy logo"
             width="50"
             height="50"
-          ></img>
+          ></img> */}
           <h1>Keyzy</h1>
         </header>
         <ul>

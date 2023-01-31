@@ -16,7 +16,7 @@ module.exports = {
       },
 
       fontFamily: {
-        outfit: ["Outfit"],
+        outfit: "Outfit, sans-serif"
       },
     },
     plugins: [require("@tailwindcss/forms")],
