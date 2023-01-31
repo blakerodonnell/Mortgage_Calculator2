@@ -19,6 +19,6 @@ module.exports = {
         outfit: "Outfit, sans-serif"
       },
     },
-    plugins: [require("@tailwindcss/forms")],
   },
+  plugins: [require("@tailwindcss/forms")],
 };
