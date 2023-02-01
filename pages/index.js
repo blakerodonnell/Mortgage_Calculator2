@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import getListingMetaData from "../lib/scraper.js";
 
 export default function Home() {
   const [inputs, setInputs] = useState({
@@ -34,9 +35,8 @@ export default function Home() {
     const duration = Number(
       Array.from(e.target)
         .slice(4, -1)
-        .find(x => x.checked).value
+        .find((x) => x.checked).value
     );
-
     setInputs({ ...inputs, url, discount, desiredYield, rentRate, duration });
   }
 
