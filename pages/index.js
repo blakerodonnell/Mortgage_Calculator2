@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import React from "react";
 import getListingMetaData from "../lib/scraper.js";
+import { render } from "react-dom";
 
 export default function Home() {
   const [inputs, setInputs] = useState({
@@ -10,6 +12,11 @@ export default function Home() {
     desiredYield: 0,
     rentRate: 0,
     duration: 3,
+    targetPrice: 400000,
+    rent: 1500,
+    convertedRent: 300,
+    totalMonthlyRent: 1800,
+    futureBuyBackPrice: 389200,
   });
   console.log(inputs);
 
@@ -167,6 +174,30 @@ export default function Home() {
             </form>
           </section>
         </div>
+      </main>
+      <main className="p-4 font-outfit">
+        <section>
+          <h2 className="text-lg font-bold mb-6">Outputs</h2>
+          <form className="border-2 border-solid flex flex-col gap-6 justify-between">
+            <div>
+              <label className="font-bold">Data retrieved</label>
+            </div>
+            <div className="p-4">
+              <p>Listing price: {"price"}</p>
+              <p>Post code: {"postcode"}</p>
+            </div>
+            <div>
+              <label className="font-bold">Calculations</label>
+           </div>
+            <div className="p-4">
+              <p>Target Price: {"targetPrice"}</p>
+              <p>Rent:  {"rentPrice"}</p>
+              <p>Converted Rent: {"convertedRent"}</p>
+              <p>Total Monthly Rent: {"totalMonthlyRent"}</p>
+              <p>Future Buy Back Price: {"futureBuyBackPrice"}</p>
+            </div>
+          </form>
+        </section>
       </main>
     </>
   );
