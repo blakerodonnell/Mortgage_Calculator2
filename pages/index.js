@@ -51,9 +51,15 @@ export default function Home() {
         .slice(4, -1)
         .find((x) => x.checked).value
     );
+
+    const formattedListingPrice = listingPrice.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+
     setInputs({
       ...inputs,
-      listingPrice,
+      formattedListingPrice,
       discount,
       desiredYield,
       rentRate,
@@ -67,13 +73,34 @@ export default function Home() {
     const totalMonthlyRent = rent + convertedRent;
     const futureBuyBackPrice = targetPrice - convertedRent * duration * 12;
 
+    const formattedTargetPrice = targetPrice.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+    const formattedRent = rent.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+    const formattedConvertedRent = convertedRent.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+    const formattedTotalMonthlyRent = totalMonthlyRent.toLocaleString(
+      undefined,
+      { minimumFractionDigits: 0, maximumFractionDigits: 0 }
+    );
+    const formattedFutureBuyBackPrice = futureBuyBackPrice.toLocaleString(
+      undefined,
+      { minimumFractionDigits: 0, maximumFractionDigits: 0 }
+    );
+
     setOutputs({
       ...outputs,
-      targetPrice,
-      rent,
-      convertedRent,
-      totalMonthlyRent,
-      futureBuyBackPrice,
+      formattedTargetPrice,
+      formattedRent,
+      formattedConvertedRent,
+      formattedTotalMonthlyRent,
+      formattedFutureBuyBackPrice,
     });
   }
 
@@ -117,7 +144,7 @@ export default function Home() {
                 <div className="w-2/3 h-12 flex flex-col justify-center">
                   <span className="block text-center">{inputs.discount}%</span>
                   <input
-                    class="accent-honey"
+                    className="accent-honey"
                     type="range"
                     name="discountvasking"
                     id="discountvasking"
@@ -152,7 +179,7 @@ export default function Home() {
                   <span className="block text-center">{inputs.rentRate}%</span>
 
                   <input
-                    class="accent-honey"
+                    className="accent-honey"
                     type="range"
                     name="converted-rent"
                     id="converted-rent"
@@ -175,7 +202,7 @@ export default function Home() {
                   <div>
                     <input
                       type="radio"
-                      class="form-radio text-honey"
+                      className="form-radio text-honey"
                       name="duration"
                       id="duration-3"
                       value="3"
@@ -188,7 +215,7 @@ export default function Home() {
                   <div className="">
                     <input
                       type="radio"
-                      class="form-radio text-honey"
+                      className="form-radio text-honey"
                       name="duration"
                       id="duration-5"
                       value="5"
@@ -200,7 +227,7 @@ export default function Home() {
                   <div className="">
                     <input
                       type="radio"
-                      class="form-radio text-honey"
+                      className="form-radio text-honey"
                       name="duration"
                       id="duration-7"
                       value="7"
@@ -217,6 +244,7 @@ export default function Home() {
             </form>
           </section>
         </div>
+        <div className="md:max-md:flex"></div>
       </main>
       <main className="p-4 font-outfit">
         <section>
@@ -226,17 +254,17 @@ export default function Home() {
               <label className="font-bold">Calculations</label>
 
               <div className="p-4">
-                <p>Listing price: {inputs.listingPrice.toFixed(0)}</p>
-                <p> Target price: {outputs.targetPrice.toFixed(0)}</p>
-                <p>Rent: {outputs.rent.toFixed(0)}</p>
+                <p>Listing price: £{inputs.formattedListingPrice}</p>
+                <p> Target price: £{outputs.formattedTargetPrice}</p>
+                <p>Rent: £{outputs.formattedRent}</p>
                 <p className="p-2">
-                  Converted rent: {outputs.convertedRent.toFixed(0)}
+                  Converted rent: £{outputs.formattedConvertedRent}
                 </p>
                 <p className="p-2">
-                  Total monthly rent: {outputs.totalMonthlyRent.toFixed(0)}
+                  Total monthly rent: £{outputs.formattedTotalMonthlyRent}
                 </p>
                 <p>
-                  Future buy back price: {outputs.futureBuyBackPrice.toFixed(0)}
+                  Future buy back price: £{outputs.formattedFutureBuyBackPrice}
                 </p>
               </div>
             </div>
