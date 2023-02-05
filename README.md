@@ -20,11 +20,11 @@ You can edit the page and calculation functionaility by modifying `pages/index.j
 
 ## Notes
 
-The Keyzey favicon is contained in "/public/favicon.jpg".
+The Keyzey favicon is contained in "public/favicon.jpg".
 
 The custom colours and font are contained in "tailwind.config.js". An additional plugin "@tailwindcss/forms" was used.
 
-A partially completed URL data scraper is contained in "/lib/scraper.js".
+A partially completed URL data scraper is contained in "lib/scraper.js".
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
