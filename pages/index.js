@@ -206,7 +206,6 @@ export default function Home() {
                       name="duration"
                       id="duration-3"
                       value="3"
-                      defaultChecked={true}
                     />
                     <label className="w-16 ml-2" htmlFor="duration-3">
                       3 years
@@ -219,6 +218,7 @@ export default function Home() {
                       name="duration"
                       id="duration-5"
                       value="5"
+                      defaultChecked={true}
                     />
                     <label className="w-16 ml-2" htmlFor="duration-5">
                       5 years
@@ -244,7 +244,9 @@ export default function Home() {
             </form>
           </section>
         </div>
-        <div className="md:max-md:flex"></div>
+        <div className="md:max-md:flex hidden md:block text-center p-5 bg-magenta text-white rounded">
+          Not tablet friendly - please use mobile or desktop device.
+        </div>
       </main>
       <main className="p-4 font-outfit">
         <section>
