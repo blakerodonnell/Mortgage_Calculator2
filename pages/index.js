@@ -8,10 +8,10 @@ import { output } from "@/next.config.js";
 export default function Home() {
   const [inputs, setInputs] = useState({
     listingPrice: 0,
-    discount: 0,
+    discount: 15,
     desiredYield: 0,
-    rentRate: 0,
-    duration: 3,
+    rentRate: 20,
+    duration: 5,
   });
   console.log(inputs);
 
@@ -144,7 +144,7 @@ export default function Home() {
                 <div className="w-2/3 h-12 flex flex-col justify-center">
                   <span className="block text-center">{inputs.discount}%</span>
                   <input
-                    className="accent-honey"
+                    className="accent-azure"
                     type="range"
                     name="discountvasking"
                     id="discountvasking"
@@ -167,7 +167,7 @@ export default function Home() {
                   max="9"
                   step="0.1"
                   placeholder="%"
-                  className="form-input w-1/3 h-12 bg-parchment rounded text-lg"
+                  className="form-input w-1/4 h-12 bg-parchment rounded text-lg"
                 />
               </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
                   <span className="block text-center">{inputs.rentRate}%</span>
 
                   <input
-                    className="accent-honey"
+                    className="accent-azure"
                     type="range"
                     name="converted-rent"
                     id="converted-rent"
@@ -202,7 +202,7 @@ export default function Home() {
                   <div>
                     <input
                       type="radio"
-                      className="form-radio text-honey"
+                      className="form-radio text-azure"
                       name="duration"
                       id="duration-3"
                       value="3"
@@ -215,7 +215,7 @@ export default function Home() {
                   <div className="">
                     <input
                       type="radio"
-                      className="form-radio text-honey"
+                      className="form-radio text-azure"
                       name="duration"
                       id="duration-5"
                       value="5"
@@ -227,7 +227,7 @@ export default function Home() {
                   <div className="">
                     <input
                       type="radio"
-                      className="form-radio text-honey"
+                      className="form-radio text-azure"
                       name="duration"
                       id="duration-7"
                       value="7"
@@ -249,25 +249,15 @@ export default function Home() {
       <main className="p-4 font-outfit">
         <section>
           <h2 className="text-lg font-bold mb-4">Outputs</h2>
-          <div className="border-2 border-solid flex flex-col gap-6 justify-between">
-            <div>
-              <label className="font-bold">Calculations</label>
-
-              <div className="p-4">
-                <p>Listing price: £{inputs.formattedListingPrice}</p>
-                <p> Target price: £{outputs.formattedTargetPrice}</p>
-                <p>Rent: £{outputs.formattedRent}</p>
-                <p className="p-2">
-                  Converted rent: £{outputs.formattedConvertedRent}
-                </p>
-                <p className="p-2">
-                  Total monthly rent: £{outputs.formattedTotalMonthlyRent}
-                </p>
-                <p>
-                  Future buy back price: £{outputs.formattedFutureBuyBackPrice}
-                </p>
-              </div>
-            </div>
+          <div className="border-2 border-solid flex flex-col gap-1 justify-between p-4">
+            <p>Listing price: £{inputs.formattedListingPrice}</p>
+            <p> Target price: £{outputs.formattedTargetPrice}</p>
+            <p>Total monthly rent: £{outputs.formattedTotalMonthlyRent}</p>
+            <p className="p-2">Rent: £{outputs.formattedRent}</p>
+            <p className="p-2">
+              Converted rent: £{outputs.formattedConvertedRent}
+            </p>
+            <p>Future buy back price: £{outputs.formattedFutureBuyBackPrice}</p>
           </div>
         </section>
       </main>
